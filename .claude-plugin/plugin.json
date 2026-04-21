@@ -1,0 +1,26 @@
+{
+  "name": "notebooklm-workspace",
+  "description": "NotebookLM workspace management — asset pipeline, research curation, Notion sync, narrative-first slide decks. Extends nlm-skill with project conventions for D:\\NotebookLM\\ (Windows) / /mnt/d/NotebookLM/ (WSL) / ~/NotebookLM/ (Ubuntu).",
+  "version": "1.0.0",
+  "author": {
+    "name": "data-privacy-office"
+  },
+  "keywords": [
+    "notebooklm",
+    "nlm",
+    "notion",
+    "slides",
+    "research",
+    "podcast",
+    "audio",
+    "artifact-pipeline",
+    "narrative"
+  ],
+  "homepage": "https://github.com/varankevich/notebooklm-workspace",
+  "repository": "https://github.com/varankevich/notebooklm-workspace",
+  "license": "MIT",
+  "skills": [
+    "./skills/notebooklm-workspace",
+    "./skills/slide-pipeline"
+  ]
+}

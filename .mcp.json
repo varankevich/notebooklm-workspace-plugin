@@ -1,0 +1,10 @@
+{
+  "_comment": "This plugin depends on the notebooklm-mcp server. Install separately via: uv tool install notebooklm-mcp-cli. Once installed, the `nlm` CLI registers the MCP server automatically. This file documents the dependency; it does not bundle the server.",
+  "mcpServers": {
+    "notebooklm-mcp": {
+      "_note": "Provided by notebooklm-mcp-cli package (uv tool install notebooklm-mcp-cli). This block is informational — the server is registered by `nlm` itself when installed.",
+      "command": "nlm",
+      "args": ["mcp-server"]
+    }
+  }
+}

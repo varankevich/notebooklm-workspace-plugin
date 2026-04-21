@@ -1,0 +1,5 @@
+# Dependencies for assets/generate_image.py (Gemini visual refinement step).
+# Install only if you want the optional visual refinement step in slide-pipeline.
+# Without these, the pipeline still produces value via NotebookLM slides + CD review.
+google-genai>=0.3.0
+Pillow>=10.0.0
