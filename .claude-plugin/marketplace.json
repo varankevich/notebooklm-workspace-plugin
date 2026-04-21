@@ -1,0 +1,20 @@
+{
+  "name": "notebooklm-workspace",
+  "owner": {
+    "name": "varankevich",
+    "email": "anthropic.api@our-office.org"
+  },
+  "metadata": {
+    "description": "NotebookLM workspace management — asset pipeline, research curation, Notion sync, narrative-first slide decks",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "notebooklm-workspace",
+      "description": "Full NotebookLM workspace plugin: asset pipeline, research curation, Notion sync, narrative-first slide decks with Creative Director review, and PostToolUse hooks for automatic Notion sync.",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/varankevich/notebooklm-workspace-plugin"
+    }
+  ]
+}
