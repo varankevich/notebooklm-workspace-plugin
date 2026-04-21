@@ -31,7 +31,7 @@ A Claude Code plugin that bundles everything needed to run a NotebookLM-centric 
 
 ```bash
 # Recommended — from GitHub
-claude plugin install varankevich/notebooklm-workspace
+claude plugin install varankevich/notebooklm-workspace-plugin
 
 # Or, during development, point at a local checkout
 claude plugin install file:///d:/NotebookLM/plugin/notebooklm-workspace-plugin
