@@ -37,7 +37,9 @@ These are non-negotiable because they prevent data loss, duplicate rows, or blow
 
 4. **Never use ad-hoc Notion MCP queries for bulk sweeps**: `notion-query-database-view` caps at 100 results per page and requires manual cursor chaining. For notebook-wide operations, always use the paginated helpers in `scripts/sync_notion_assets.py` (`_load_notebooks()` does while-True + has_more/next_cursor correctly, covers all 200+).
 
-5. **Automatic Notion sync is ON by default** (`NOTION_SYNC=1` in `.env`). PostToolUse hooks fire after `download_artifact` and `source_add` calls and run the appropriate sync script. To pause: set `NOTION_SYNC=0`. See [references/notion-sync.md](references/notion-sync.md#automatic-sync).
+5. **Automatic Notion sync is ON by default** (`NOTION_SYNC=1` in `.env`). PostToolUse hooks fire after `download_artifact`, `source_add`, and `studio_create` calls and run the appropriate sync script. To pause: set `NOTION_SYNC=0`. See [references/notion-sync.md](references/notion-sync.md#automatic-sync).
+
+5a. **Always download artifacts after a `studio_create` batch.** `studio_create` does NOT populate the Notion Assets DB on its own — its PostToolUse hook only refreshes the Notebooks DB row and queues a pending pull. To create Assets DB rows, you MUST call `download_artifact` (CLI or MCP) for each generated artifact once it reports `status=completed`. Each download fires the asset-sync hook which uploads the file to Notion. Skipping this is the most common reason Assets DB stays empty after a generation pipeline. Naming convention: `{type}/{slug}/{N}-{aspect}.{ext}` (e.g. `audio/my-nb/1-establishment.mp3`).
 
 6. **Run `source_doctor.py` after every `research_import`** that imports any URL sources (and any time you suspect failed-ingest stubs). It detects stubs, walks Firecrawl → curl_cffi → quarantine, uploads recovered content, deletes stubs (per the standing pre-authorization), and runs `touch`. Platform-aware:
    ```bash
